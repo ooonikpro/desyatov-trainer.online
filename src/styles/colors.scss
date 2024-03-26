@@ -1,0 +1,18 @@
+.c-white {
+  color: var(--white);
+}
+
+.c-gray {
+  color: rgba(#fff, .7);
+}
+
+.c-black {
+  color: var(--black);
+}
+
+.c-gradient {
+  background: var(--primary);
+  background-image: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

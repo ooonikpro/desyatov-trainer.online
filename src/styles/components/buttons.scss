@@ -1,0 +1,15 @@
+.btn {
+  border: none;
+  outline: none;
+  appearance: none;
+  border-radius: 40px;
+  
+  @include desktop {
+    cursor: pointer;
+
+    &:hover {
+      transition: 1s linear;
+      filter: hue-rotate(360deg);
+    }
+  }
+}
