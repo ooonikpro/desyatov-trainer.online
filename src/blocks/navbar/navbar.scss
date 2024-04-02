@@ -1,0 +1,93 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--black);
+  color: var(--white);
+  z-index: 1;
+
+  @include desktop() {
+    height: 70px;
+  }
+
+  &__container {
+    width: 100%;
+    margin: auto;
+    max-width: var(--container-width);
+    height: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__logo {
+    height: inherit;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      max-width: 99%;
+      max-height: 50%;
+    }
+  }
+
+  &__btn-menu {
+    width: 60px;
+    height: 60px;
+    background-color: var(--black-secondary);
+  
+    @include desktop() {
+      width: 70px;
+      height: 70px;
+
+      svg {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__go-to-programs {
+    @include fontAlternative();
+    padding: 0 16px;
+    height: 34px;
+    background: var(--gradient);
+    color: var(--black);
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: 12px;
+    font-size: 12px;
+
+    @include desktop() {
+      height: 2.4rem;
+      border-radius: 2.4rem;
+      font-size: 1rem;
+      padding: 0 1.6rem;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 90px;
+
+  &__instagram,
+  &__telegram {
+    width: 34px;
+    height: 34px;
+    border-radius: 34px;
+
+    @include desktop() {
+      svg {
+        transform: scale(1.3);
+      }
+    }
+  }
+}

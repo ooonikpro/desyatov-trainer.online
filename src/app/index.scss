@@ -1,0 +1,64 @@
+@import '../mixins.scss';
+@import '../blocks/index.scss';
+
+:root {
+  --black: #000;
+  --black-secondary: #0E0E0E;
+  --white: #fff;
+  --primary: #00FF38;
+  --secondary: #8FFF00;
+  --gradient: linear-gradient(to right, #00FF38 0%, #8FFF00 100%);
+  --container-width: 1180px;
+}
+
+* {
+  &, &::before, &::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    appearance: none;
+  }
+}
+
+@font-face {
+  font-family: "DrukTextWide";
+  src: url('../assets/fonts/DrukTextWide-Bold.woff');
+  font-weight: bold;
+}
+
+html {
+  font-size: 10px;
+  font-size: 100%;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  background-color: var(--black);
+  scroll-behavior: smooth;
+  color: var(--white);
+
+  @include desktop() {
+    font-size: 14px;
+  }
+
+  @include desktop2k() {
+    font-size: 16px;
+  }
+
+  @include desktop4k() {
+    font-size: 18px;
+  }
+}
+
+a, button {
+  background: none;
+  border: none;
+
+  @include desktop() {
+    cursor: pointer;
+
+    &:hover {
+      transition: 1s linear;
+      filter: hue-rotate(360deg);
+    }
+  }
+}
