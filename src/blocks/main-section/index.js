@@ -1,4 +1,5 @@
-const DURATION = 2000;
+const DURATION = 1500;
+const PAUSE = 3000;
 
 let activeIndex = 0;
 const spans = document.querySelectorAll('.text-animation');

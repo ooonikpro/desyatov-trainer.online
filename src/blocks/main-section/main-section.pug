@@ -1,3 +1,5 @@
+- var words = ['Мужчин', 'Женщин', 'Новичков', 'Опытных'];
+
 header.main-section
   include ./bg-video/bg-video.pug
   .main-section__container
@@ -5,11 +7,12 @@ header.main-section
       span.main-title__text-white Онлайн 
       span.main-title__text-gradient Тренировки
       span.main-title__text-white Для&nbsp;
-        span.text-animation МУЖЧИН
-        span.text-animation.d-none ЖЕНЩИН
-        span.text-animation.d-none НАБИРАЮЩИХ
-        span.text-animation.d-none ХУДЕЮЩИХ
-        span.text-animation.d-none НАЧИНАЮЩИХ
+        each val, index in words
+          if index === 0
+            span.text-animation=val
+          else
+            span.text-animation.d-none=val
+        
     ul.main-section__list
       li Обновляемые программы тренировок
       li Онлайн ведение

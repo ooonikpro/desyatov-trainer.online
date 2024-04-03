@@ -48,6 +48,7 @@
   &__text-white {
     color: var(--white);
     position: relative;
+    overflow: hidden;
   }
 
   &__text-gradient {
@@ -57,7 +58,7 @@
 
 .text-animation {
   position: absolute;
-  transition: all 1s ease-out;
+  transition: all .6s ease;
 }
 
 .d-none {
