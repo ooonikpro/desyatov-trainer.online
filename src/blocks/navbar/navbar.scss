@@ -1,16 +1,16 @@
 .navbar {
   width: 100%;
-  height: 60px;
+  height: var(--navbar-height);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: var(--black);
   color: var(--white);
-  z-index: 1;
+  z-index: 100;
 
   @include desktop() {
-    height: 70px;
+    --navbar-height: 70px;
   }
 
   &__container {
@@ -52,22 +52,8 @@
   }
 
   &__go-to-programs {
-    @include fontAlternative();
-    padding: 0 16px;
-    height: 34px;
-    background: var(--gradient);
-    color: var(--black);
-    border-radius: 20px;
     margin-left: auto;
     margin-right: 12px;
-    font-size: 12px;
-
-    @include desktop() {
-      height: 2.4rem;
-      border-radius: 2.4rem;
-      font-size: 1rem;
-      padding: 0 1.6rem;
-    }
   }
 }
 

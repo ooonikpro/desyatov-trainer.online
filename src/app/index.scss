@@ -9,6 +9,7 @@
   --secondary: #8FFF00;
   --gradient: linear-gradient(to right, #00FF38 0%, #8FFF00 100%);
   --container-width: 1180px;
+  --navbar-height: 60px;
 }
 
 * {
@@ -60,5 +61,41 @@ a, button {
       transition: 1s linear;
       filter: hue-rotate(360deg);
     }
+  }
+}
+
+.btn {
+  @include fontAlternative();
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 0 16px;
+
+  &.btn--size-s {
+    height: 34px;
+    line-height: 35px;
+    border-radius: 20px;
+
+    @include desktop() {
+      height: 2.4rem;
+      line-height: 2.41rem;
+      border-radius: 2.4rem;
+      font-size: 1rem;
+      padding: 0 1.6rem;
+    }
+  }
+
+  &.btn--size-l {
+    height: 3rem;
+    line-height: 3.1rem;
+    border-radius: 3.1rem;
+    font-size: 1rem;
+  }
+
+  &.btn--gradient {
+    background: var(--gradient);
+    color: var(--black);
   }
 }

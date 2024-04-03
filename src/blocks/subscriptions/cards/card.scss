@@ -1,0 +1,61 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 420px;
+  min-height: 500px;
+  border: 1px solid var(--secondary);
+  text-align: center;
+  padding: 80px 24px 24px 40px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+
+  &__cover {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+
+    @include desktop() {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    opacity: .8;
+    margin-bottom: 24px;
+  }
+
+  &__price {
+    margin-top: auto;
+  }
+
+  &__price-prefix {
+    font-size: 1.2rem;
+    opacity: .8;
+  }
+
+  &__price-value {
+    font-size: 2rem;
+  }
+
+  &__details {
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+}

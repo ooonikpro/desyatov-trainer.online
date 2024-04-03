@@ -1,35 +1,29 @@
+@import './cards/card.scss';
+@import './switcher/switcher.scss';
+
 .subscriptions {
   width: 100%;
   min-height: 100svh;
   background: var(--black);
   position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    height: 3px;
-    background: var(--gradient);
-  }
+  padding-top: var(--navbar-height);
   
   &__container {
     width: 100%;
     max-width: var(--container-width);
     margin: auto;
-    padding: 3.2rem 1rem;
+    padding: 2rem 1rem;
 
     @include desktop() {
-      padding: 5rem 0;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
   &__title {
     @include fontAlternative();
 
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: .8rem;
@@ -40,16 +34,13 @@
   }
 
   &__subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--white);
     opacity: .7;
+    margin-bottom: 50px;
 
     @include desktop() {
       font-size: 1.4rem;
     }
-  }
-
-  &__link {
-    color: var(--white);
   }
 }
