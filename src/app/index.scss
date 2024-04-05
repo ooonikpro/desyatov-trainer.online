@@ -18,6 +18,7 @@
     margin: 0;
     box-sizing: border-box;
     appearance: none;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -36,6 +37,7 @@ html {
   background-color: var(--black);
   scroll-behavior: smooth;
   color: var(--white);
+  touch-action: pan-y;
 
   @include desktop() {
     font-size: 14px;
@@ -54,13 +56,13 @@ a, button {
   background: none;
   border: none;
 
+  &:hover {
+    transition: 1s linear;
+    filter: hue-rotate(360deg);
+  }
+
   @include desktop() {
     cursor: pointer;
-
-    &:hover {
-      transition: 1s linear;
-      filter: hue-rotate(360deg);
-    }
   }
 }
 

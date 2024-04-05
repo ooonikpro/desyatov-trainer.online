@@ -1,4 +1,15 @@
-label.switcher
-  input.switcher__input(type="checkbox" checked)
-  span.switcher__label Мужчины
-  span.switcher__label Женщины
+div.switcher
+  input.switcher__input(type="checkbox" id="switcher")
+
+  label.switcher__trigger(for="switcher")
+    span.switcher__label Мужчины
+    span.switcher__label Женщины
+    span.switcher__highlight
+
+  .switcher__content
+    include ../cards/card-fullbody-m.pug
+    include ../cards/card-meat.pug
+  .switcher__content
+    include ../cards/card-fullbody-w.pug
+    include ../cards/card-nuts.pug
+  

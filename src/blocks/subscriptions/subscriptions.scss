@@ -1,10 +1,9 @@
-@import './cards/card.scss';
+@import './cards/card.template.scss';
 @import './switcher/switcher.scss';
 
 .subscriptions {
   width: 100%;
   min-height: 100svh;
-  background: var(--black);
   position: relative;
   padding-top: var(--navbar-height);
   
@@ -37,10 +36,13 @@
     font-size: 1.2rem;
     color: var(--white);
     opacity: .7;
-    margin-bottom: 50px;
 
     @include desktop() {
       font-size: 1.4rem;
     }
+  }
+
+  &__title-group {
+    margin-bottom: 2rem;
   }
 }
