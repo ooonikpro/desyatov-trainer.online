@@ -590,6 +590,9 @@ var _blocks = require("../blocks");
 var _mainSection = require("./main-section");
 
 },{"./main-section":"67Odj"}],"67Odj":[function(require,module,exports) {
+var _titleAnimate = require("./title-animate");
+
+},{"./title-animate":"kJ5Tl"}],"kJ5Tl":[function(require,module,exports) {
 const DURATION = 1500;
 const PAUSE = 3000;
 let activeIndex = 0;

@@ -1,0 +1,26 @@
+.running-string {
+  background-image: var(--gradient);
+  width: 100%;
+  overflow: hidden;
+
+
+  &:hover {
+    transition: 1s linear;
+    filter: hue-rotate(360deg);
+  }
+
+  &__text {
+    width: inherit;
+    height: 2rem;
+    background-image: url(~src/assets/images/running-string.svg);
+    background-size: contain;
+    animation: run 30s linear infinite;
+    opacity: 0.8;
+  }
+}
+
+@keyframes run {
+  to {
+    background-position-x: -100%;
+  }
+}
