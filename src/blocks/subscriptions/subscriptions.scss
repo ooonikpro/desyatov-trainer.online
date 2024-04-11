@@ -1,48 +1,12 @@
-@import './cards/card.template.scss';
-@import './switcher/switcher.scss';
-
 .subscriptions {
   width: 100%;
-  min-height: 100svh;
   position: relative;
-  padding-top: var(--navbar-height);
   
-  &__container {
-    width: 100%;
-    max-width: var(--container-width);
-    margin: auto;
-    padding: 2rem 1rem;
-
-    @include desktop() {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-
-  &__title {
-    @include fontAlternative();
-
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: .8rem;
-
-    @include desktop() {
-      font-size: 2.8rem;
-    }
-  }
-
-  &__subtitle {
-    font-size: 1.2rem;
+  &__disclaimer {
     color: var(--white);
-    opacity: .7;
-
-    @include desktop() {
-      font-size: 1.4rem;
-    }
-  }
-
-  &__title-group {
-    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-align: center;
+    opacity: .5;
   }
 }

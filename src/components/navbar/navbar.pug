@@ -1,0 +1,14 @@
+nav.navbar
+  .navbar__container
+    label.btn.btn--quadro.navbar__btn-menu(for="sidebar-trigger")
+      include ./btnMenu.pug
+    a.navbar__logo(href="#main-section")
+      include ./logo.pug
+    .navbar__social.social
+      button.btn.social__instagram
+        include ./btnInstagram.pug
+      button.btn.social__telegram
+        include ./btnTelegram.pug
+    
+    a.btn.btn--size-s.btn--gradient.navbar__go-to-programs(href="#subscriptions")
+      span Подписки

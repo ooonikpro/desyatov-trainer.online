@@ -1,0 +1,15 @@
+.about {
+  background: rgba(0,0,0, .5);
+  backdrop-filter: blur(30px);
+
+  p {
+    opacity: .9;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 1.6rem;
+
+    @include desktop {
+      font-size: 1.6rem;
+    }
+  }
+}

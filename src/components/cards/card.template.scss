@@ -1,0 +1,116 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 40%;
+  min-width: 300px;
+  min-height: 400px;
+  border: 1px solid var(--secondary);
+  text-align: center;
+  padding: 80px 24px 24px 40px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+
+  &__cover {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+
+    @include desktop() {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    opacity: .8;
+    margin-bottom: 24px;
+  }
+
+  &__price {
+    margin-top: auto;
+  }
+
+  &__price-prefix {
+    font-size: 1.2rem;
+    opacity: .8;
+  }
+
+  &__price-value {
+    font-size: 2rem;
+  }
+
+  &__details-close {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    transform: scale(0.5);
+    z-index: 2;
+    transition: all 300ms ease;
+
+    @include desktop {
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__modal-outer {
+    position: absolute;
+    inset: 0;
+    background-color: var(--black);
+    border-radius: inherit;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 350ms ease;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  &__modal-in {
+    width: calc(100% + 17px);
+    height: 100%;
+    padding: 40px 42px 24px 40px;
+    overflow-y: scroll;
+    text-align: left;
+    font-size: 1.1rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  
+  &__checkbox:checked ~ &__details &__details-close {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__checkbox:checked ~ &__modal-outer {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

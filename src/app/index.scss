@@ -1,5 +1,4 @@
 @import '../mixins.scss';
-@import '../blocks/index.scss';
 
 :root {
   --black: #000;
@@ -39,6 +38,11 @@ html {
   color: var(--white);
   touch-action: pan-y;
 
+  &.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+  }
+
   @include desktop() {
     font-size: 14px;
   }
@@ -52,9 +56,34 @@ html {
   }
 }
 
-a, button {
-  background: none;
+.link {
+  font-size: 1.2rem;
+  text-decoration: underline;
+
+  &, &:visited {
+    color: var(--white);
+  }
+
+  @include desktop {
+    cursor: pointer;
+  }
+}
+
+.btn {
+  @include fontAlternative();
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
   border: none;
+  appearance: none;
+
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  font-size: 12px;
 
   &:hover {
     transition: 1s linear;
@@ -64,20 +93,21 @@ a, button {
   @include desktop() {
     cursor: pointer;
   }
-}
 
-.btn {
-  @include fontAlternative();
+  &.btn--quadro {
+    width: 60px;
+    height: 60px;
 
-  text-align: center;
-  text-decoration: none;
-  font-size: 12px;
-  text-decoration: none;
-  padding: 0 16px;
+    @include desktop() {
+      width: 70px;
+      height: 70px;
+    }
+  }
 
   &.btn--size-s {
-    height: 34px;
-    line-height: 35px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
     border-radius: 20px;
 
     @include desktop() {
@@ -93,6 +123,7 @@ a, button {
     height: 3rem;
     line-height: 3.1rem;
     border-radius: 3.1rem;
+    padding: 0 16px;
     font-size: 1rem;
   }
 
@@ -100,4 +131,62 @@ a, button {
     background: var(--gradient);
     color: var(--black);
   }
+
+  &.btn--black {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  &.btn--black-secondary {
+    background: var(--black-secondary);
+    color: var(--white);
+  }
 }
+
+.sections {
+  min-height: 50svh;
+  background-color: var(--black);
+  padding: var(--navbar-height) 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: auto;
+  padding: 0 1rem;
+
+  @include desktop() {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.title {
+  @include fontAlternative();
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+
+  @include desktop() {
+    font-size: 2.8rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--white);
+  opacity: .7;
+
+  @include desktop() {
+    font-size: 1.4rem;
+  }
+}
+
+.title-group {
+  margin-bottom: 2rem;
+}
+
+@import '../blocks/index.scss';
+@import '../components/index.scss';

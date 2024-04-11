@@ -585,8 +585,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"1l7bB":[function(require,module,exports) {
 var _blocks = require("../blocks");
+var _components = require("../components");
 
-},{"../blocks":"gV9L0"}],"gV9L0":[function(require,module,exports) {
+},{"../blocks":"gV9L0","../components":"6nkmk"}],"gV9L0":[function(require,module,exports) {
 var _mainSection = require("./main-section");
 
 },{"./main-section":"67Odj"}],"67Odj":[function(require,module,exports) {
@@ -605,6 +606,31 @@ const tick = ()=>{
     setTimeout(tick, DURATION);
 };
 setTimeout(tick, DURATION);
+
+},{}],"6nkmk":[function(require,module,exports) {
+var _sidebar = require("./sidebar");
+
+},{"./sidebar":"jDsi7"}],"jDsi7":[function(require,module,exports) {
+const checkbox = document.getElementById("sidebar-trigger");
+const addNoScroll = ()=>{
+    const paddingRight = window.outerWidth - window.innerWidth;
+    document.documentElement.classList.add("no-scroll");
+    document.body.style = `padding-right: ${paddingRight + "px"}`;
+};
+const removeNoScroll = ()=>{
+    setTimeout(()=>{
+        document.body.style = `padding-right: 0`;
+        document.documentElement.classList.remove("no-scroll");
+    }, 300);
+};
+checkbox.onchange = function() {
+    if (this.checked) addNoScroll();
+    else removeNoScroll();
+};
+window.addEventListener("hashchange", ()=>{
+    checkbox.checked = false;
+    removeNoScroll();
+});
 
 },{}]},["98kq4","1l7bB"], "1l7bB", "parcelRequirec476")
 
