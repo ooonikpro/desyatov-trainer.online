@@ -101,15 +101,25 @@ html.no-scroll {
   }
 }
 
-.btn.btn--quadro {
+.btn.btn--circle, .btn.btn--quadro {
   width: 60px;
   height: 60px;
 }
 
 @media screen and (width >= 1180px) {
-  .btn.btn--quadro {
+  .btn.btn--circle, .btn.btn--quadro {
     width: 70px;
     height: 70px;
+  }
+}
+
+.btn.btn--circle {
+  border-radius: 60px;
+}
+
+@media screen and (width >= 1180px) {
+  .btn.btn--circle {
+    border-radius: 70px;
   }
 }
 
@@ -179,13 +189,13 @@ html.no-scroll {
   text-transform: uppercase;
   margin-bottom: .8rem;
   font-family: DrukTextWide;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 @media screen and (width >= 1180px) {
   .title {
-    font-size: 2.8rem;
+    font-size: 4.2rem;
   }
 }
 
@@ -230,11 +240,9 @@ html.no-scroll {
 }
 
 .main-section__list {
-  opacity: .7;
   flex-direction: column;
   gap: .5rem;
   margin-left: 1rem;
-  font-size: 1.2rem;
   display: flex;
 }
 
@@ -244,7 +252,7 @@ html.no-scroll {
   text-transform: uppercase;
   flex-direction: column;
   font-family: DrukTextWide;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   display: flex;
 }
@@ -288,21 +296,103 @@ html.no-scroll {
   text-align: center;
   opacity: .5;
   font-size: 1.6rem;
-  font-weight: bold;
 }
 
-.maintaince {
+.maintenance {
   background: none;
   min-height: 100svh;
 }
 
 .faq {
+  backdrop-filter: blur(30px);
+  background: #00000080;
+}
+
+.accordion {
   background-color: var(--black-secondary);
+  border-radius: 15px;
+}
+
+.accordion__trigger {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.accordion, .accordion__item {
+  flex-direction: column;
+  display: flex;
+}
+
+.accordion__item {
+  gap: 8px;
+}
+
+.accordion__item:not(:last-child) {
+  border-bottom: 1px solid var(--black);
+}
+
+.accordion__head {
+  padding: 1rem 2rem;
+  display: flex;
+}
+
+@media screen and (width >= 1180px) {
+  .accordion__head {
+    cursor: pointer;
+  }
+}
+
+.accordion__head-text {
+  flex: calc(100% - 30px);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.accordion__head-icon {
+  transform-origin: center;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 3rem;
+  transition: transform .25s;
+  display: flex;
+}
+
+.accordion__body {
+  visibility: hidden;
+  background: var(--black);
+  color: var(--white);
+  height: 1px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 100;
+  transition: all .25s;
+  overflow: hidden;
+}
+
+.accordion__trigger:checked ~ .accordion__body {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  overflow: auto;
+}
+
+.accordion__trigger:checked ~ .accordion__head .accordion__head-icon {
+  transform: rotate(45deg);
+}
+
+.accordion__item:last-child .accordion__body {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .about {
-  backdrop-filter: blur(30px);
-  background: #00000080;
+  background-color: var(--black-secondary);
 }
 
 .about p {
@@ -371,27 +461,6 @@ html.no-scroll {
   margin-right: 12px;
 }
 
-.social {
-  justify-content: space-around;
-  align-items: center;
-  display: flex;
-}
-
-.social__instagram, .social__telegram {
-  height: var(--navbar-height);
-  width: 34px;
-}
-
-@media screen and (width >= 1180px) {
-  .social__instagram, .social__telegram {
-    width: var(--navbar-height);
-  }
-
-  .social__instagram svg, .social__telegram svg {
-    transform: scale(1.3);
-  }
-}
-
 .running-string {
   background-image: var(--gradient);
   align-items: center;
@@ -420,6 +489,10 @@ html.no-scroll {
   width: 100%;
   height: 110%;
   animation: 15s linear infinite run;
+}
+
+.running-string--inverted .running-string__text {
+  animation-direction: reverse;
 }
 
 @keyframes run {
@@ -527,23 +600,34 @@ html.no-scroll {
   text-decoration: none;
 }
 
+.sidebar__social {
+  align-items: center;
+  gap: 8px;
+  padding: 0 2rem;
+  display: flex;
+}
+
 .card {
   border: 1px solid var(--secondary);
-  text-align: center;
   z-index: 1;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 24px;
   flex-direction: column;
-  flex: 40%;
   gap: 16px;
-  min-width: 300px;
-  min-height: 400px;
+  width: 100%;
+  min-height: 500px;
   padding: 80px 24px 24px 40px;
   display: flex;
   position: relative;
   overflow: hidden;
+}
+
+@media screen and (width >= 1180px) {
+  .card {
+    max-width: calc(50% - 16px);
+  }
 }
 
 .card__cover {
@@ -585,6 +669,11 @@ html.no-scroll {
 
 .card__price-value {
   font-size: 2rem;
+}
+
+.card__details-text {
+  text-align: center;
+  display: block;
 }
 
 .card__details-close {
@@ -754,5 +843,25 @@ html.no-scroll {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.social {
+  align-items: center;
+  display: flex;
+}
+
+.social__instagram, .social__telegram {
+  height: var(--navbar-height);
+  width: 34px;
+}
+
+@media screen and (width >= 1180px) {
+  .social__instagram, .social__telegram {
+    width: var(--navbar-height);
+  }
+
+  .social__instagram svg, .social__telegram svg {
+    transform: scale(1.3);
+  }
 }
 /*# sourceMappingURL=index.0fd5e593.css.map */

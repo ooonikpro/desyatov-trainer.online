@@ -24,6 +24,10 @@
     background-repeat: repeat-x;
     animation: run 15s linear infinite;
   }
+
+  &--inverted &__text {
+    animation-direction: reverse;
+  }
 }
 
 @keyframes run {

@@ -627,10 +627,14 @@ checkbox.onchange = function() {
     if (this.checked) addNoScroll();
     else removeNoScroll();
 };
-window.addEventListener("hashchange", ()=>{
-    checkbox.checked = false;
-    removeNoScroll();
-});
+const menu = document.querySelector(".sidebar__menu");
+menu.onclick = (e)=>{
+    const id = e.target.getAttribute("href");
+    if (id) {
+        checkbox.checked = false;
+        removeNoScroll();
+    }
+};
 
 },{}]},["98kq4","1l7bB"], "1l7bB", "parcelRequirec476")
 

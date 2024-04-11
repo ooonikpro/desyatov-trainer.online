@@ -99,4 +99,11 @@
     text-decoration: none;
     color: var(--white);
   }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 8px;
+  }
 }

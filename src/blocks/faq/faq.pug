@@ -3,3 +3,29 @@ section.sections.faq#faq
     .title-group.faq__title-group
       h2.title.faq__title FAQ
       span.subtitle.faq__subtitle Часто задаваемые вопросы
+    .accordion
+      .accordion__item
+        input.accordion__trigger(type="checkbox" name="faq-accordion" id="q-1")
+        label.accordion__head(for="q-1")
+          span.accordion__head-text Что я получу если оформлю подписку?
+          span.accordion__head-icon +
+        blockquote.accordion__body
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad earum sint beatae repellat obcaecati, distinctio perspiciatis fugiat minus ducimus nemo aspernatur a enim corrupti voluptatum iusto debitis. Labore, totam?
+      
+      .accordion__item
+        input.accordion__trigger(type="checkbox" name="faq-accordion" id="q-2")
+        label.accordion__head(for="q-2")
+          span.accordion__head-text Безопасно ли оформлять подписку?
+          span.accordion__head-icon +
+        blockquote.accordion__body
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad earum sint beatae repellat obcaecati, distinctio perspiciatis fugiat minus ducimus nemo aspernatur a enim corrupti voluptatum iusto debitis. Labore, totam?
+
+      .accordion__item
+        input.accordion__trigger(type="checkbox" name="faq-accordion" id="q-3")
+        label.accordion__head(for="q-3")
+          span.accordion__head-text Как отменить подписку?
+          span.accordion__head-icon +
+        blockquote.accordion__body
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ad earum sint beatae repellat obcaecati, distinctio perspiciatis fugiat minus ducimus nemo aspernatur a enim corrupti voluptatum iusto debitis. Labore, totam?          
+
+

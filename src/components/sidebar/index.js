@@ -19,7 +19,13 @@ checkbox.onchange = function() {
   else removeNoScroll();
 }
 
-window.addEventListener('hashchange', () => {
-  checkbox.checked = false;
-  removeNoScroll();
-});
+const menu = document.querySelector('.sidebar__menu');
+
+menu.onclick = (e) => {
+  const id = e.target.getAttribute('href');
+
+  if (id) {
+    checkbox.checked = false;
+    removeNoScroll();
+  }
+}

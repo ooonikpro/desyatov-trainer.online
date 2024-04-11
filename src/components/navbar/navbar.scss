@@ -50,23 +50,3 @@
     margin-right: 12px;
   }
 }
-
-.social {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  &__instagram,
-  &__telegram {
-    width: 34px;
-    height: var(--navbar-height);
-
-    @include desktop() {
-      width: var(--navbar-height);
-
-      svg {
-        transform: scale(1.3);
-      }
-    }
-  }
-}

@@ -25,15 +25,13 @@
     flex-direction: column;
     gap: .5rem;
     margin-left: 1rem;
-    font-size: 1.2rem;
-    opacity: .7;
   }
 }
 
 .main-title {
   @include fontAlternative();
 
-  font-size: 1.8rem;
+  font-size: 2rem;
 
   @include desktop() {
     font-size: 4.2rem;

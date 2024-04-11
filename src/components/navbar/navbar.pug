@@ -4,11 +4,8 @@ nav.navbar
       include ./btnMenu.pug
     a.navbar__logo(href="#main-section")
       include ./logo.pug
-    .navbar__social.social
-      button.btn.social__instagram
-        include ./btnInstagram.pug
-      button.btn.social__telegram
-        include ./btnTelegram.pug
+    
+    include ../social/social.pug
     
     a.btn.btn--size-s.btn--gradient.navbar__go-to-programs(href="#subscriptions")
       span Подписки
