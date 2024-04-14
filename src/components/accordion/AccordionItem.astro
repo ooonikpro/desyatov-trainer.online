@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="accordion__item">
+  <input
+    class="accordion__trigger"
+    type="checkbox"
+    id={title}
+  />
+  <label
+    class="accordion__head"
+    for={title}>
+    <span class="accordion__head-text">{title}</span>
+    <span class="accordion__head-icon">+</span>
+  </label>
+  <blockquote class="accordion__body">
+    <slot />
+  </blockquote>
+</div>

@@ -1,0 +1,35 @@
+---
+import Radio from "@components/radio/Radio.astro";
+import Switcher from "@components/switcher/Switcher.astro";
+
+interface Props {
+  id: string;
+  textPrice: number;
+  videoPrice: number;
+}
+
+const { id, textPrice, videoPrice } = Astro.props;
+
+const timeRadioName = `time-${id}-radio`;
+const subType = `sub-${id}-type`;
+const getTotal = (price: number): string => String(price * 3 * 0.9);
+---
+
+<div class="card__content card__content--pricing">
+  <span class="card__title card__title--alternative">Параметры подписки</span>
+
+  <Switcher id={subType} label="Формат контента" left="Текст" right="Видео" withContent>
+    <Fragment slot="left-content">
+      <Radio name={timeRadioName} value="1" checked>1 месяц за {String(textPrice)} ₽</Radio>
+      <Radio name={timeRadioName} value="3">3 месяца за {getTotal(textPrice)} ₽ (экономия 10%)</Radio>
+    </Fragment>
+    <Fragment slot="right-content">
+      <Radio name={timeRadioName} value="1">1 месяц за {String(videoPrice)} ₽</Radio>
+      <Radio name={timeRadioName} value="3">3 месяца за {getTotal(videoPrice)} ₽ (экономия 10%)</Radio>
+    </Fragment>
+  </Switcher>
+
+  <button class="btn btn--size-l btn--gradient card__payment"> Перейти к оплате </button>
+
+  <slot name="cancel-btn" />
+</div>

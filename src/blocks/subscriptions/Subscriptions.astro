@@ -1,0 +1,38 @@
+---
+import "./Subscriptions.scss";
+import Switcher from "@components/switcher/Switcher.astro";
+
+import Atlet from "./cards/Atlet.astro";
+import MyasoNabor from "./cards/MyasoNabor.astro";
+import FitoNyashka from "./cards/FitoNyashka.astro";
+import KrugloYagodichnoe from "./cards/KrugloYagodichnoe.astro";
+---
+
+<section class="sections subscriptions" id="subscriptions">
+  <div class="container subscriptions__container">
+    <div class="title-group subscriptions__title-group">
+      <h2 class="title subscriptions__title">Подписки</h2>
+      <p class="subtitle subscriptions__subtitle">
+        Подписка предоставляет доступ&nbsp;к&nbsp;закрытому Telegram&nbsp;-&nbsp;каналу с&nbsp;постоянно обновляемым
+        контентом.&nbsp;
+      </p>
+    </div>
+
+    <Switcher id="gender" left="Мужчины" right="Женщины" withContent>
+      <Fragment slot="left-content">
+        <Atlet />
+        <MyasoNabor />
+      </Fragment>
+
+      <Fragment slot="right-content">
+        <FitoNyashka />
+        <KrugloYagodichnoe />
+      </Fragment>
+    </Switcher>
+
+    <p class="subtitle">
+      Оформляя подписку вы получаете доступ к закрытому телеграмм-каналу, в котором находятся
+      текстовые&nbsp;и&nbsp;видеоматериалы с подробным описанием каждого из упражнений.
+    </p>
+  </div>
+</section>

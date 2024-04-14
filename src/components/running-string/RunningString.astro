@@ -1,0 +1,13 @@
+---
+import "./RunningString.scss";
+
+interface Props {
+  dir?: "left" | "right";
+}
+
+const { dir = "left" } = Astro.props;
+---
+
+<div class:list={["running-string", { [`dir-${dir}`]: true }]}>
+  <div class="running-string__text"></div>
+</div>

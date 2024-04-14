@@ -1,0 +1,59 @@
+---
+import "./Card.scss";
+import CardPricing from "./CardPricing.astro";
+
+interface Props {
+  title: string;
+  img: string;
+  textPrice?: number;
+  videoPrice?: number;
+}
+
+const { title, img, textPrice = 690, videoPrice = 1490 } = Astro.props;
+
+const descriptionTriggerId = `description-${title}-tigger`;
+const priceTriggerId = `price-${title}-trigger`;
+---
+
+<div class="card">
+  <div class="card__cover">
+    <img src={img} alt={title} />
+  </div>
+
+  <input class="card__trigger card__trigger--modal" type="checkbox" id={descriptionTriggerId} />
+  <input class="card__trigger card__trigger--pricing" type="checkbox" id={priceTriggerId} />
+
+  <div class="card__content card__content--base-info">
+    <h3 class="card__title">
+      {title}
+    </h3>
+    <p class="card__description">
+      <slot name="description" />
+    </p>
+    <p class="card__price">
+      <span class="card__price-prefix">от&nbsp;</span>
+      <b class="card__price-value">{String(textPrice)}&nbsp;₽</b>
+      <span class="card__price-prefix">&nbsp;/ мес.</span>
+    </p>
+    <label for={priceTriggerId} class="btn btn--size-l btn--gradient"> Подключить </label>
+
+    <label class="link card__details" for={descriptionTriggerId}>
+      <span class="card__details-text">Подробнее о программе</span>
+      <span class="card__details-close">&times;</span>
+    </label>
+  </div>
+
+  <CardPricing id={title} textPrice={textPrice} videoPrice={videoPrice}>
+    <label slot="cancel-btn" class="link card__details" for={priceTriggerId}>
+      <span class="card__details-text">Отмена</span>
+    </label>
+  </CardPricing>
+
+  <div class="card__modal-outer">
+    <div class="card__modal-in">
+      <div class="card__content">
+        <slot name="long-description" />
+      </div>
+    </div>
+  </div>
+</div>

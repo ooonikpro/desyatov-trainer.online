@@ -1,15 +1,23 @@
 {
-  "name": "desyatov-trainer.online",
-  "source": "./src/app/index.pug",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "name": "desyatov-trainer-online",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "start": "parcel",
-    "mobile": "parcel --host 0.0.0.0",
-    "build": "parcel build"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "astro": "^4.6.1",
+    "sass": "^1.75.0",
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.12.0",
-    "@parcel/transformer-sass": "^2.12.0",
-    "parcel": "^2.12.0"
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0"
   }
 }

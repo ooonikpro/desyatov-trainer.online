@@ -1,0 +1,24 @@
+---
+import "./Navbar.scss";
+import IconMenu from "@shared/ui/icons/Menu.astro";
+import Logo from "@shared/ui/icons/Logo.astro";
+import Social from "./social/Social.astro";
+---
+
+<nav class="navbar">
+  <div class="navbar__container">
+    <label for="sidebar-trigger" class="btn btn--quadro navbar__btn-menu">
+      <IconMenu />
+    </label>
+    <a href="#main-section" class="navbar__logo">
+      <Logo />
+    </a>
+
+    <Social />
+
+    <a
+      href="#subscriptions"
+      class="btn btn--size-s btn--gradient navbar__go-to-programs">Подписки</a
+    >
+  </div>
+</nav>

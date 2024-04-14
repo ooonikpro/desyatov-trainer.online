@@ -1,0 +1,14 @@
+---
+import "./RadioGroup.scss";
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="radio-group">
+  <span class="radio-group__label">{label}</span>
+  <slot />
+</div>

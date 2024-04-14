@@ -1,0 +1,36 @@
+---
+import "./Switcher.scss";
+
+interface Props {
+  id: string;
+  label?: string;
+  left: string;
+  right: string;
+  checked?: boolean;
+  withContent?: boolean;
+}
+
+const { id, left, right, checked = false, withContent = false } = Astro.props;
+---
+
+<div class="switcher">
+  <input class="switcher__input" type="checkbox" id={id} checked={checked} />
+  <label class="switcher__trigger" for={id}>
+    <span class="switcher__option">{left}</span>
+    <span class="switcher__option">{right}</span>
+    <span class="switcher__highlight"></span>
+  </label>
+
+  {
+    withContent && (
+      <>
+        <div class="switcher__content">
+          <slot name="left-content" />
+        </div>
+        <div class="switcher__content">
+          <slot name="right-content" />
+        </div>
+      </>
+    )
+  }
+</div>

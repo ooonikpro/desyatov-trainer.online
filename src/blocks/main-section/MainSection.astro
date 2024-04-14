@@ -1,0 +1,29 @@
+---
+import "./MainSection.scss";
+import BgVideo from "@components/bg-video/BgVideo.astro";
+---
+
+<header class="main-section" id="main-section">
+  <BgVideo />
+  <div class="main-section__container">
+    <h1 class="main-section__title main-title">
+      <span class="main-title__text-white">Онлайн</span>
+      <span class="main-title__text-gradient">Тренировки</span>
+      <span class="main-title__text-white">
+        Для&nbsp;
+        <span class="text-animation">Мужчин</span>
+        <span class="text-animation d-none">Женщин</span>
+        <span class="text-animation d-none">Новичков</span>
+        <span class="text-animation d-none">Опытных</span>
+      </span>
+    </h1>
+
+    <ul class="main-section__list">
+      <li class="subtitle">Обновляемые программы тренировок</li>
+      <li class="subtitle">Онлайн ведение</li>
+      <li class="subtitle">Планы питания</li>
+    </ul>
+  </div>
+</header>
+
+<script src="./textAnimate.js"></script>

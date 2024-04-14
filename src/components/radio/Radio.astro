@@ -1,0 +1,19 @@
+---
+import "./Radio.scss";
+
+interface Props {
+  name: string;
+  value: string;
+  checked?: boolean;
+}
+
+const { name, value, checked } = Astro.props;
+---
+
+<label class="radio">
+  <input class="radio__input" type="radio" name={name} value={value} checked={checked} />
+  <span class="radio__text">
+    <div class="radio__point"></div>
+    <slot />
+  </span>
+</label>
