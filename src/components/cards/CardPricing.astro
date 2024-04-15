@@ -21,11 +21,21 @@ const getTotal = (price: number): string => String(price * 3 * 0.9);
   <Switcher id={subType} label="Формат контента" left="Текст" right="Видео" withContent>
     <Fragment slot="left-content">
       <Radio name={timeRadioName} value="1" checked>1 месяц - {String(textPrice)} ₽</Radio>
-      <Radio name={timeRadioName} value="3">3 месяца - {getTotal(textPrice)} ₽ (выгода&nbsp;10%)</Radio>
+      <Radio name={timeRadioName} value="3">
+        3 месяца - {getTotal(textPrice)} ₽
+        <Fragment slot="description">
+          выгода 10%
+        </Fragment>
+      </Radio>
     </Fragment>
     <Fragment slot="right-content">
       <Radio name={timeRadioName} value="1" checked>1 месяц - {String(videoPrice)} ₽</Radio>
-      <Radio name={timeRadioName} value="3">3 месяца - {getTotal(videoPrice)} ₽ (выгода&nbsp;10%)</Radio>
+      <Radio name={timeRadioName} value="3">
+        3 месяца - {getTotal(videoPrice)} ₽
+        <Fragment slot="description">
+          выгода 10%
+        </Fragment>  
+      </Radio>
     </Fragment>
   </Switcher>
 

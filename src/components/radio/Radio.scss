@@ -1,6 +1,9 @@
 .radio {
   width: 100%;
   user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 
   @include desktop() {
     cursor: pointer;
@@ -11,42 +14,47 @@
   }
 
   &__point {
-    flex: 0 0 auto;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 36px;
+    height: 36px;
     border-radius: 30px;
-    border: 1px solid var(--secondary);
+    border: 3px solid var(--secondary);
     z-index: 1;
     transition: all 300ms ease;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      margin: auto;
+      inset: 0;
+      border-radius: 2rem;
+      background: var(--gradient);
+      transition: all 300ms ease, filter 1s linear;
+      transform-origin: center;
+      transform: scale(0);
+      opacity: 0;
+    }
   }
 
   &__text {
-    font-size: 1rem;
-    font-weight: 700;
     display: flex;
-    align-items: center;
-    gap: 16px;
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
-    border-radius: 40px;
-    padding: 0.5rem;
-    background: transparent;
-    transition:
-      all 300ms ease,
-      filter 0 linear;
-    overflow: hidden;
+    flex-direction: column;
   }
 
-  &__input:checked ~ &__text {
-    background: var(--gradient);
-    color: var(--black);
+  &__text-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  &__text-description {
+    font-size: .9rem;
+    opacity: .8;
+  }
+
+  &__input:checked ~ &__point::before {
     filter: hue-rotate(360deg);
-    transition:
-      all 300ms ease,
-      filter 500ms linear;
-  }
-
-  &__input:checked ~ &__text &__point {
-    background: var(--black);
+    transform: scale(0.8);
+    opacity: 1;
   }
 }
