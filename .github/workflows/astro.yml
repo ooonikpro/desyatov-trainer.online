@@ -24,8 +24,8 @@ jobs:
         uses: withastro/action@v2
         with:
           env:
-            APP_SITE: ${{secrets.APP_SITE}}
-            APP_BASE: ${{secrets.APP_BASE}}
+            APP_SITE: ${{ secrets.APP_SITE }}
+            APP_BASE: ${{ secrets.APP_BASE }}
 
   deploy:
     needs: build
