@@ -18,28 +18,36 @@ const getTotal = (price: number): string => String(price * 3 * 0.9);
 <div class="card__content card__content--pricing">
   <span class="card__title card__title--alternative">Параметры подписки</span>
 
-  <Switcher id={subType} label="Формат контента" left="Текст" right="Видео" withContent>
+  <Switcher
+    id={subType}
+    label="Формат контента"
+    left="Текст"
+    right="Видео"
+    withContent
+  >
     <Fragment slot="left-content">
-      <Radio name={timeRadioName} value="1" checked>1 месяц - {String(textPrice)} ₽</Radio>
+      <Radio name={timeRadioName} value="1" checked
+        >1 месяц - {String(textPrice)} ₽</Radio
+      >
       <Radio name={timeRadioName} value="3">
         3 месяца - {getTotal(textPrice)} ₽
-        <Fragment slot="description">
-          выгода 10%
-        </Fragment>
+        <Fragment slot="description"> выгода 10% </Fragment>
       </Radio>
     </Fragment>
     <Fragment slot="right-content">
-      <Radio name={timeRadioName} value="1" checked>1 месяц - {String(videoPrice)} ₽</Radio>
+      <Radio name={timeRadioName} value="1" checked
+        >1 месяц - {String(videoPrice)} ₽</Radio
+      >
       <Radio name={timeRadioName} value="3">
         3 месяца - {getTotal(videoPrice)} ₽
-        <Fragment slot="description">
-          выгода 10%
-        </Fragment>  
+        <Fragment slot="description"> выгода 10% </Fragment>
       </Radio>
     </Fragment>
   </Switcher>
 
-  <button class="btn btn--size-l btn--gradient card__payment"> Перейти к оплате </button>
+  <button class="btn btn--size-l btn--gradient card__payment">
+    Перейти к оплате
+  </button>
 
   <slot name="cancel-btn" />
 </div>

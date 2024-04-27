@@ -1,13 +1,43 @@
 ---
 import "./HowItWork.scss";
+
+import StepperContainer from "@components/stepper/StepperContainer.astro";
+import StepperStep from "@components/stepper/StepperStep.astro";
 ---
 
-<section
-  class="sections how"
-  id="how">
+<section class="sections how" id="how">
   <div class="container how__container">
-    <div class="title-group how__title-group">
-      <h2 class="title how__title">Как работает подписка?</h2><span class="subtitle how__subtitle"></span>
+    <h2 class="title how__title">Как работает подписка?</h2>
+
+    <StepperContainer>
+      <StepperStep title="Выбираем подписку">
+        Определяемся с подпиской и нажимаем кнопку "Подключить"
+      </StepperStep>
+
+      <StepperStep title="Настраиваем подписку">
+        Подписка имеет несколько вариантов. Выбираем нужный и нажимаем кнопку
+        оплатить
+      </StepperStep>
+
+      <StepperStep title="Оплачиваем подписку">
+        После всех действий на сайте вас перенаправит на платёжный шлюз, где
+        необходимо произвести оплату
+      </StepperStep>
+
+      <StepperStep title="Пользуемся подпиской">
+        После успешной оплаты вы будете добавлены в телеграм-группу с
+        материалом. Приятного пользования
+      </StepperStep>
+    </StepperContainer>
+
+    <div class="how__video-instruction">
+      <img src="/images/how-it-with-text.png" />
+      <iframe
+        src="https://ooonikpro.github.io/desyatov-trainer.online/"
+        width="375"
+        height="812"
+        class="how__video-iframe"
+        frameborder="0"></iframe>
     </div>
   </div>
 </section>

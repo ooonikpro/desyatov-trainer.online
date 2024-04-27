@@ -11,14 +11,20 @@ const { name, value, checked } = Astro.props;
 ---
 
 <label class="radio">
-  <input class="radio__input" type="radio" name={name} value={value} checked={checked} />
+  <input
+    class="radio__input"
+    type="radio"
+    name={name}
+    value={value}
+    checked={checked}
+  />
   <span class="radio__point"></span>
   <span class="radio__text">
     <span class="radio__text-title">
-      <slot/>
+      <slot />
     </span>
     <span class="radio__text-description">
-      <slot name="description"/>
+      <slot name="description" />
     </span>
   </span>
 </label>

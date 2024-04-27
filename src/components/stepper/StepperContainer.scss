@@ -1,0 +1,72 @@
+.stepper {
+  --stepper-row-gap: 3rem;
+  --stepper-number-size: 5.5rem;
+  --stepper-number-font-size: 2rem;
+  --stepper-title-size: 1.2rem;
+  --stepper-body-size: 1rem;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--stepper-row-gap);
+
+  @include desktop {
+    --stepper-row-gap: 3.2rem;
+    --stepper-number-size: 7rem;
+    --stepper-number-font-size: 2.4rem;
+    --stepper-title-size: 1.6rem;
+    --stepper-body-size: 1.4rem;
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    counter-increment: step-counter;
+    padding-left: calc(var(--stepper-number-size) + 1.6rem);
+    min-height: var(--stepper-number-size);
+    gap: 8px;
+
+    &::before {
+      @include fontAlternative();
+      content: counter(step-counter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--stepper-number-size);
+      height: var(--stepper-number-size);
+      border-radius: 50%;
+      background: var(--gradient);
+      color: var(--black);
+      font-size: var(--stepper-number-font-size);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  &__step:not(:last-of-type)::after {
+    @include bgWithGradient();
+    content: "";
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: calc(var(--stepper-number-size) / 2 - 1px);
+    z-index: 0;
+    bottom: calc(var(--stepper-number-size) * -1);
+  }
+
+  &__step-title {
+    text-transform: uppercase;
+    font-size: var(--stepper-title-size);
+  }
+
+  &__step-body {
+    opacity: .7;
+    font-size: var(--stepper-body-size);
+  }
+}

@@ -1,0 +1,29 @@
+.how {
+  padding-bottom: 0;
+
+  &__title {
+    margin-bottom: 3.2rem;
+  }
+
+  &__video-instruction {
+    position: relative;
+    display: flex;
+    max-width: 550px;
+    margin: auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__video-iframe {
+    position: absolute;
+    transform: scale(.1);
+    transform-origin: top left;
+    top: 38%;
+    left: 32.2%;
+    border-bottom-right-radius: 10rem;
+    pointer-events: none;
+
+  }
+}

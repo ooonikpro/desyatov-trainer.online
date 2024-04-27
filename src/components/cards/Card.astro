@@ -20,8 +20,16 @@ const priceTriggerId = `price-${title}-trigger`;
     <img src={img} alt={title} />
   </div>
 
-  <input class="card__trigger card__trigger--modal" type="checkbox" id={descriptionTriggerId} />
-  <input class="card__trigger card__trigger--pricing" type="checkbox" id={priceTriggerId} />
+  <input
+    class="card__trigger card__trigger--modal"
+    type="checkbox"
+    id={descriptionTriggerId}
+  />
+  <input
+    class="card__trigger card__trigger--pricing"
+    type="checkbox"
+    id={priceTriggerId}
+  />
 
   <div class="card__content card__content--base-info">
     <h3 class="card__title">
@@ -35,7 +43,9 @@ const priceTriggerId = `price-${title}-trigger`;
       <b class="card__price-value">{String(textPrice)}&nbsp;₽</b>
       <span class="card__price-prefix">&nbsp;/ мес.</span>
     </p>
-    <label for={priceTriggerId} class="btn btn--size-l btn--gradient"> Подключить </label>
+    <label for={priceTriggerId} class="btn btn--size-l btn--gradient">
+      Подключить
+    </label>
 
     <label class="link card__details" for={descriptionTriggerId}>
       <span class="card__details-text">Подробнее о программе</span>
