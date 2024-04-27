@@ -7,15 +7,21 @@ interface Props {
   img: string;
   textPrice?: number;
   videoPrice?: number;
+  gender?: "m" | "w";
 }
 
-const { title, img, textPrice = 690, videoPrice = 1490 } = Astro.props;
+const { title, img, textPrice = 690, videoPrice = 1490, gender } = Astro.props;
 
 const descriptionTriggerId = `description-${title}-tigger`;
 const priceTriggerId = `price-${title}-trigger`;
+const genderModifier = {
+  m: "card--for-mans",
+  w: "card--for-women",
+};
+const classes = ["card", genderModifier[gender]];
 ---
 
-<div class="card">
+<div class:list={classes}>
   <div class="card__cover">
     <img src={img} alt={title} />
   </div>
