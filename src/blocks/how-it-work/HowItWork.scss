@@ -17,6 +17,7 @@
   }
 
   &__video-iframe {
+    border: none;
     position: absolute;
     transform: scale(.1);
     transform-origin: top left;
@@ -24,6 +25,5 @@
     left: 32.2%;
     border-bottom-right-radius: 10rem;
     pointer-events: none;
-
   }
 }

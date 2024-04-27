@@ -10,7 +10,13 @@ interface Props {
   gender?: "m" | "w";
 }
 
-const { title, img, textPrice = 690, videoPrice = 1490, gender } = Astro.props;
+const {
+  title,
+  img,
+  textPrice = 690,
+  videoPrice = 1490,
+  gender = "m",
+} = Astro.props;
 
 const descriptionTriggerId = `description-${title}-tigger`;
 const priceTriggerId = `price-${title}-trigger`;
