@@ -1,0 +1,17 @@
+---
+import "./Input.scss";
+
+interface Props {
+  type?: "text" | "number";
+  label?: string;
+  maxlength?: number | string;
+  max?: number | string;
+}
+
+const { label, maxlength, type = "text", max } = Astro.props;
+---
+
+<label class="input">
+  <span class="input__label">{label}</span>
+  <input type={type} class="input__input" maxlength={maxlength} max={max} />
+</label>

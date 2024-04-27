@@ -1,5 +1,10 @@
 ---
 import "./Food.scss";
+import Switcher from "@components/switcher/Switcher.astro";
+import InputGroup from "@components/input/InputGroup.astro";
+import Input from "@components/input/Input.astro";
+import RadioGroup from "@components/radio/RadioGroup.astro";
+import Radio from "@components/radio/Radio.astro";
 ---
 
 <section class="sections food" id="food">
@@ -7,6 +12,38 @@ import "./Food.scss";
     <div class="title-group food__title-group">
       <h2 class="title food__title">Расчет колорий</h2>
       <span class="subtitle food__subtitle"></span>
+    </div>
+
+    <div class="calculator">
+      <Switcher id="calc-gender" left="Мужчины" right="Женщины" />
+
+      <InputGroup>
+        <Input type="number" maxlength="3" max="100" label="Возраст" />
+        <Input type="number" maxlength="3" max="250" label="Рост в см" />
+        <Input type="number" maxlength="3" max="300" label="Вес в кг" />
+      </InputGroup>
+      <br />
+      <br />
+
+      <RadioGroup label="Активность в течение дня">
+        <Radio name="activity" value="1">Очень низкая</Radio>
+        <Radio name="activity" value="2">Низкая</Radio>
+        <Radio name="activity" value="3">Средняя</Radio>
+        <Radio name="activity" value="4">Высокая</Radio>
+        <Radio name="activity" value="5">Очень высокая</Radio>
+      </RadioGroup>
+
+      <br /><br />
+
+      <RadioGroup label="Ваша цель">
+        <Radio name="purpose" value="1">Сбросить вес</Radio>
+        <Radio name="purpose" value="2">Поддерживать вес</Radio>
+        <Radio name="purpose" value="3">Набрать вес</Radio>
+      </RadioGroup>
+
+      <br /><br />
+
+      <button class="btn btn--size-l btn--gradient"> Расчитать </button>
     </div>
   </div>
 </section>
