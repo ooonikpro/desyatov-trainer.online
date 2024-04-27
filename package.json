@@ -17,6 +17,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
   }
