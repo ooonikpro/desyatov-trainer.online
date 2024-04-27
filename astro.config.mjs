@@ -8,12 +8,13 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log(process.env.APP_BASE, process.env.APP_SITE);
+const site = process.env.APP_SITE;
+const base = process.env.APP_BASE;
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.APP_SITE,
-  base: process.env.APP_BASE,
+  ...(site ? { site } : {}),
+  ...(base ? { base } : {}),
   vite: {
     resolve: {
       alias: {
