@@ -31,7 +31,7 @@
 .main-title {
   @include fontAlternative();
 
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   @include desktop() {
     font-size: 4.2rem;
