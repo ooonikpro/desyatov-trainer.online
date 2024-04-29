@@ -26,7 +26,7 @@ const { label, values, ...attrs } = Astro.props;
     return `linear-gradient(to right, red 0%, yellow 50%, green 75%, blue 100%)`;
   };
 
-  const setBgColor = (input) => () => {
+  const setBgColor = (input: Element) => () => {
     const max = Number(input.getAttribute("max"));
     const percentage = (Number(input.value) / max) * 100;
 

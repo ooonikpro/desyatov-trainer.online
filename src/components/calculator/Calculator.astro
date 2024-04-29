@@ -90,7 +90,17 @@ const activity = [
     "35-40% белки, 15-25% жиры, 40-60% углеводы",
   ];
 
-  document.querySelector('form[name="calories"]').onsubmit = function (event) {
+  const calcForm = document.querySelector(
+    'form[name="calories"]',
+  ) as HTMLFormElement;
+  const resultNode = document.querySelector(
+    ".calculator__result-value",
+  ) as HTMLElement;
+  const recommendationNode = document.querySelector(
+    ".calculator__recommendations",
+  ) as HTMLElement;
+
+  const onSubmit = function (event: Event) {
     event.preventDefault();
 
     const formData = [...this.elements].reduce((acc, input) => {
@@ -107,8 +117,6 @@ const activity = [
       };
     }, {});
 
-    console.log(formData);
-
     let result =
       10 * formData.weight + 6.26 * formData.height - 5 * formData.age;
 
@@ -116,13 +124,13 @@ const activity = [
     else result -= 161;
 
     result *= activityValues[Number(formData.activity)];
+    result = Math.ceil(Math.abs(result));
 
-    document.querySelector(".calculator__result-value").innerText =
-      Math.ceil(Math.abs(result)).toString().slice(0, 2) + "00";
-
-    document.querySelector(".calculator__recommendations").innerText =
-      recommendations[Number(formData.purpose)];
+    resultNode.innerText = result.toString().slice(0, 2) + "00";
+    recommendationNode.innerText = recommendations[Number(formData.purpose)];
 
     return false;
   };
+
+  calcForm.onsubmit = onSubmit;
 </script>
