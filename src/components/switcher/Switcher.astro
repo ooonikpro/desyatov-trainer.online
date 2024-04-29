@@ -6,15 +6,14 @@ interface Props {
   label?: string;
   left: string;
   right: string;
-  checked?: boolean;
   withContent?: boolean;
 }
 
-const { id, left, right, checked = false, withContent = false } = Astro.props;
+const { id, left, right, withContent = false, ...attrs } = Astro.props;
 ---
 
 <div class="switcher">
-  <input class="switcher__input" type="checkbox" id={id} checked={checked} />
+  <input class="switcher__input" type="checkbox" id={id} {...attrs} />
   <label class="switcher__trigger" for={id}>
     <span class="switcher__option">{left}</span>
     <span class="switcher__option">{right}</span>

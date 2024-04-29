@@ -1,0 +1,25 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 1.4rem;
+
+    &-value {
+      @include textWithGradient;
+      @include fontAlternative;
+      font-weight: 700;
+      width: 100%;
+      max-width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-size: 4rem;
+    }
+  }
+}

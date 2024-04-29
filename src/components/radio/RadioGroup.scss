@@ -1,11 +1,29 @@
 .radio-group {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 16px;
-
   &__label {
+    width: 100%;
+    display: block;
     opacity: .8;
-    margin-bottom: -8px;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 8px 16px;
+    flex-direction: column;
+  }
+
+  &--inline &__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include desktop() {
+      flex-wrap: nowrap;
+    }
   }
 }

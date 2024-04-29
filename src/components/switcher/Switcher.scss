@@ -9,7 +9,6 @@
     border-radius: 2rem;
     position: relative;
     overflow: hidden;
-    margin-bottom: 2.4rem;
 
     @include desktop() {
       display: inline-flex;
@@ -76,7 +75,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 3.2rem;
+    padding-top: 1.6rem;
   }
 
   &__input:checked ~ &__content:nth-of-type(1),

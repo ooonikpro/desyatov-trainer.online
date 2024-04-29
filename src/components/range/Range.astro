@@ -1,0 +1,56 @@
+---
+import "./Range.scss";
+
+interface Props {
+  label?: string;
+  values?: string[];
+}
+
+const { label, values, ...attrs } = Astro.props;
+---
+
+<script>
+  const gradient = (percentage: number) => {
+    if (percentage <= 25) {
+      return `linear-gradient(to right, red 0%, orange ${percentage}%, #000 ${percentage}%, #000 100%)`;
+    }
+
+    if (percentage <= 50) {
+      return `linear-gradient(to right, red 0%, yellow ${percentage}%, #000 ${percentage}%, #000 100%)`;
+    }
+
+    if (percentage <= 75) {
+      return `linear-gradient(to right, red 0%, yellow 50%, green ${percentage}%, #000 ${percentage}%, #000 100%)`;
+    }
+
+    return `linear-gradient(to right, red 0%, yellow 50%, green 75%, blue 100%)`;
+  };
+
+  const setBgColor = (input) => () => {
+    const max = Number(input.getAttribute("max"));
+    const percentage = (Number(input.value) / max) * 100;
+
+    input.style = `background: ${gradient(percentage)}`;
+  };
+
+  document.querySelectorAll(".range__input").forEach((input) => {
+    setBgColor(input)();
+
+    input.onchange = setBgColor(input);
+  });
+</script>
+
+<label class="range">
+  {label && <span class="range__label">{label}</span>}
+  <input type="range" class="range__input" {...attrs} />
+
+  {
+    values && (
+      <div class="range__description">
+        {values.map((row) => (
+          <span class="range__post-label">{row}</span>
+        ))}
+      </div>
+    )
+  }
+</label>

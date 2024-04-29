@@ -3,12 +3,31 @@ import "./RadioGroup.scss";
 
 interface Props {
   label: string;
+  textCenter?: boolean;
+  inline?: boolean;
 }
 
-const { label } = Astro.props;
+const { label, inline = false, textCenter } = Astro.props;
+const classes = {
+  root: [
+    "radio-group",
+    {
+      "radio-group--inline": inline,
+    },
+  ],
+
+  label: [
+    "radio-group__label",
+    {
+      "radio-group__label--center": textCenter,
+    },
+  ],
+};
 ---
 
-<div class="radio-group">
-  <span class="radio-group__label">{label}</span>
-  <slot />
+<div class:list={classes.root}>
+  <span class:list={classes.label}>{label}</span>
+  <div class="radio-group__container">
+    <slot />
+  </div>
 </div>

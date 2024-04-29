@@ -182,11 +182,10 @@ html {
 
 .title {
   @include fontAlternative();
-
-  font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
+  font-size: 2rem;
 
   @include desktop() {
     font-size: 4.2rem;

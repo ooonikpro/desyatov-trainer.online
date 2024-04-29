@@ -1,0 +1,128 @@
+---
+import "./Calculator.scss";
+
+import Switcher from "../switcher/Switcher.astro";
+import Radio from "../radio/Radio.astro";
+import Input from "../input/Input.astro";
+import InputGroup from "../input/InputGroup.astro";
+import RadioGroup from "../radio/RadioGroup.astro";
+import Range from "../range/Range.astro";
+
+const activity = [
+  "Очень низкая",
+  "Низкая",
+  "Средняя",
+  "Высокая",
+  "Очень высокая",
+];
+---
+
+<form class="calculator" name="calories">
+  <Switcher
+    id="calc-gender"
+    left="Я мужчина"
+    right="Я женщина"
+    label="Пол"
+    name="gender"
+  />
+
+  <RadioGroup label="Xочу" inline>
+    <Radio name="purpose" value="0" checked block required>Сбросить вес</Radio>
+    <Radio name="purpose" value="1" block required>Поддерживать вес</Radio>
+    <Radio name="purpose" value="2" block required>Набрать вес</Radio>
+  </RadioGroup>
+
+  <InputGroup>
+    <Input
+      type="number"
+      maxlength="3"
+      max="100"
+      inputmode="numeric"
+      label="Мой возраст"
+      name="age"
+      required
+    />
+    <Input
+      type="number"
+      maxlength="3"
+      max="250"
+      inputmode="numeric"
+      label="Рост в см"
+      name="height"
+      required
+    />
+    <Input
+      type="number"
+      maxlength="3"
+      max="300"
+      inputmode="numeric"
+      label="Вес в кг"
+      name="weight"
+      required
+    />
+  </InputGroup>
+
+  <Range
+    label="Активность в течение дня"
+    name="activity"
+    min="0"
+    value="1"
+    max="4"
+    values={activity}
+    required
+  />
+
+  <button type="submit" class="btn btn--size-l btn--gradient btn--block">
+    Расчитать
+  </button>
+
+  <div class="calculator__result">
+    <span>Результат: <span class="calculator__result-value"></span></span>
+    <span class="calculator__recommendations"></span>
+  </div>
+</form>
+
+<script>
+  const activityValues = [1.2, 1.375, 1.55, 1.7, 1.9];
+  const recommendations = [
+    "30-35% белки, 30-35% жиры, 30-40% углеводы",
+    "25-35% белки, 25-35% жиры, 40-50% углеводы",
+    "35-40% белки, 15-25% жиры, 40-60% углеводы",
+  ];
+
+  document.querySelector('form[name="calories"]').onsubmit = function (event) {
+    event.preventDefault();
+
+    const formData = [...this.elements].reduce((acc, input) => {
+      let value = input.value;
+      const name = input.name;
+
+      if ((input.type === "radio" && !input.checked) || !name) return acc;
+
+      if (input.type === "checkbox") value = Number(input.checked);
+
+      return {
+        ...acc,
+        [name]: value,
+      };
+    }, {});
+
+    console.log(formData);
+
+    let result =
+      10 * formData.weight + 6.26 * formData.height - 5 * formData.age;
+
+    if (formData.gender === 0) result += 5;
+    else result -= 161;
+
+    result *= activityValues[Number(formData.activity)];
+
+    document.querySelector(".calculator__result-value").innerText =
+      Math.ceil(Math.abs(result)).toString().slice(0, 2) + "00";
+
+    document.querySelector(".calculator__recommendations").innerText =
+      recommendations[Number(formData.purpose)];
+
+    return false;
+  };
+</script>

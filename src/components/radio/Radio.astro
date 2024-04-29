@@ -5,12 +5,17 @@ interface Props {
   name: string;
   value: string;
   checked?: boolean;
+  block?: boolean;
 }
 
-const { name, value, checked } = Astro.props;
+const { name, value, checked, block = false } = Astro.props;
+const classes = [
+  "radio",
+  { ["radio--block"]: block, ["radio--point"]: !block },
+];
 ---
 
-<label class="radio">
+<label class:list={classes}>
   <input
     class="radio__input"
     type="radio"
@@ -18,7 +23,7 @@ const { name, value, checked } = Astro.props;
     value={value}
     checked={checked}
   />
-  <span class="radio__point"></span>
+  <span class="radio__indicator"></span>
   <span class="radio__text">
     <span class="radio__text-title">
       <slot />
