@@ -26,6 +26,7 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -80,87 +81,6 @@ html {
   }
 }
 
-.btn {
-  @include fontAlternative();
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  background: transparent;
-  border: none;
-  appearance: none;
-
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  font-size: 12px;
-
-  &:hover {
-    transition: 1s linear;
-    filter: hue-rotate(360deg);
-  }
-
-  @include desktop() {
-    cursor: pointer;
-  }
-
-  &.btn--circle,
-  &.btn--quadro {
-    width: 60px;
-    height: 60px;
-
-    @include desktop() {
-      width: 70px;
-      height: 70px;
-    }
-  }
-
-  &.btn--circle {
-    border-radius: 60px;
-    @include desktop() {
-      border-radius: 70px;
-    }
-  }
-
-  &.btn--size-s {
-    height: 25px;
-    line-height: 25px;
-    padding: 0 10px;
-    border-radius: 20px;
-
-    @include desktop() {
-      height: 2.4rem;
-      line-height: 2.41rem;
-      border-radius: 2.4rem;
-      font-size: 1rem;
-      padding: 0 1.6rem;
-    }
-  }
-
-  &.btn--size-l {
-    height: 3rem;
-    line-height: 3.1rem;
-    border-radius: 3.1rem;
-    padding: 0 16px;
-    font-size: 1rem;
-  }
-
-  &.btn--gradient {
-    background: var(--gradient);
-    color: var(--black);
-  }
-
-  &.btn--black {
-    background: var(--black);
-    color: var(--white);
-  }
-
-  &.btn--black-secondary {
-    background: var(--black-secondary);
-    color: var(--white);
-  }
-}
 
 .sections {
   min-height: 50svh;

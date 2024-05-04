@@ -1,9 +1,9 @@
 ---
 import "./Calculator.scss";
 
-import Switcher from "../switcher/Switcher.astro";
-import Radio from "../radio/Radio.astro";
-import Input from "../input/Input.astro";
+import Switcher from "../switcher/Switcher.svelte";
+import Radio from "../radio/Radio.svelte";
+import Input from "../input/Input.svelte";
 import InputGroup from "../input/InputGroup.astro";
 import RadioGroup from "../radio/RadioGroup.astro";
 import Range from "../range/Range.astro";
@@ -34,27 +34,24 @@ const activity = [
 
   <InputGroup>
     <Input
-      type="number"
+      type="text"
       maxlength="3"
-      max="100"
       inputmode="numeric"
       label="Мой возраст"
       name="age"
       required
     />
     <Input
-      type="number"
+      type="text"
       maxlength="3"
-      max="250"
       inputmode="numeric"
       label="Рост в см"
       name="height"
       required
     />
     <Input
-      type="number"
+      type="text"
       maxlength="3"
-      max="300"
       inputmode="numeric"
       label="Вес в кг"
       name="weight"

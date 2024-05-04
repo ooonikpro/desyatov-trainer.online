@@ -4,14 +4,14 @@ export default {
   plugins: ["prettier-plugin-astro"],
   overrides: [
     {
-      files: ["*.astro", "*.js", "*.ts"],
+      files: ["*.astro", "*.svelte", "*.js", "*.ts"],
       options: {
         parser: "astro",
         singleQuote: false,
         bracketSameLine: false,
         singleAttributePerLine: false,
-        jsxBracketSameLine: true,
-      },
-    },
-  ],
+        jsxBracketSameLine: false
+      }
+    }
+  ]
 };

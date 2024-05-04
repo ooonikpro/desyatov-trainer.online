@@ -1,6 +1,4 @@
 ---
-import "./RadioGroup.scss";
-
 interface Props {
   label: string;
   textCenter?: boolean;
@@ -31,3 +29,35 @@ const classes = {
     <slot />
   </div>
 </div>
+
+<style lang="scss" is:global>
+  .radio-group {
+    &__label {
+      width: 100%;
+      display: block;
+      opacity: 0.8;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+
+      &--center {
+        text-align: center;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex: 1 1 auto;
+      gap: 8px 16px;
+      flex-direction: column;
+    }
+
+    &--inline &__container {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      @include desktop() {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+</style>

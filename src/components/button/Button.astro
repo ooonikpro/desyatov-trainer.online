@@ -1,0 +1,134 @@
+---
+interface Props {
+  size?: "s" | "l";
+  color?: "black" | "black-secondary" | "gradient";
+  block?: boolean;
+  circle?: boolean;
+  quadro?: boolean;
+  for?: string;
+  href?: string;
+  forceTag?: string;
+}
+
+let TagName = "button";
+
+const {
+  size = "s",
+  color = "black",
+  block,
+  circle,
+  quadro,
+  forceTag,
+  class: className,
+  ...attrs
+} = Astro.props;
+
+const classes = [
+  "btn",
+  `btn--size-${size}`,
+  `btn--color-${color}`,
+  {
+    "btn--block": block,
+    "btn--quadro": quadro,
+    "btn--circle": circle,
+  },
+  className,
+];
+
+if (attrs.for) TagName = "label";
+if (attrs.href) TagName = "a";
+
+if (forceTag) TagName = forceTag;
+---
+
+<TagName class:list={classes} {...attrs}>
+  <slot />
+</TagName>
+
+<style lang="scss">
+  .btn {
+    @include fontAlternative();
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+    appearance: none;
+
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    font-size: 12px;
+
+    &:hover {
+      transition: 1s linear;
+      filter: hue-rotate(360deg);
+    }
+
+    @include desktop() {
+      cursor: pointer;
+    }
+
+    &--circle,
+    &--quadro {
+      width: 60px;
+      height: 60px;
+
+      @include desktop() {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    &--circle {
+      border-radius: 60px;
+      @include desktop() {
+        border-radius: 70px;
+      }
+    }
+
+    &--size {
+      &-s {
+        height: 25px;
+        line-height: 25px;
+        padding: 0 10px;
+        border-radius: 20px;
+
+        @include desktop() {
+          height: 2.4rem;
+          line-height: 2.41rem;
+          border-radius: 2.4rem;
+          font-size: 1rem;
+          padding: 0 1.6rem;
+        }
+      }
+
+      &-l {
+        height: 3rem;
+        line-height: 3.1rem;
+        border-radius: 3.1rem;
+        padding: 0 16px;
+        font-size: 1rem;
+      }
+    }
+
+    &--color {
+      &-black {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      &-black-secondary {
+        background: var(--black-secondary);
+        color: var(--white);
+      }
+
+      &-gradient {
+        background: var(--gradient);
+        color: var(--black);
+      }
+    }
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
-import Radio from "@components/radio/Radio.astro";
-import Switcher from "@components/switcher/Switcher.astro";
+import Radio from "../radio/Radio.svelte";
+import Switcher from "../switcher/Switcher.svelte";
 
 interface Props {
   id: string;
@@ -26,21 +26,21 @@ const getTotal = (price: number): string => String(price * 3 * 0.9);
     withContent
   >
     <Fragment slot="left-content">
-      <Radio name={timeRadioName} value="1" checked
-        >1 месяц - {String(textPrice)} ₽</Radio
-      >
+      <Radio name={timeRadioName} value="1" checked>
+        1 месяц - {String(textPrice)} ₽
+      </Radio>
       <Radio name={timeRadioName} value="3">
         3 месяца - {getTotal(textPrice)} ₽
-        <Fragment slot="description"> выгода 10% </Fragment>
+        <Fragment slot="description"> выгода 10%</Fragment>
       </Radio>
     </Fragment>
     <Fragment slot="right-content">
-      <Radio name={timeRadioName} value="1" checked
-        >1 месяц - {String(videoPrice)} ₽</Radio
-      >
+      <Radio name={timeRadioName} value="1" checked>
+        1 месяц - {String(videoPrice)} ₽
+      </Radio>
       <Radio name={timeRadioName} value="3">
         3 месяца - {getTotal(videoPrice)} ₽
-        <Fragment slot="description"> выгода 10% </Fragment>
+        <Fragment slot="description"> выгода 10%</Fragment>
       </Radio>
     </Fragment>
   </Switcher>

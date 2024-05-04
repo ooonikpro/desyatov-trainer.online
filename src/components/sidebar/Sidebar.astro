@@ -1,22 +1,15 @@
 ---
-import "./Sidebar.scss";
-import IconInstagram from "@shared/ui/icons/Instagram.astro";
-import IconTelegram from "@shared/ui/icons/Telegram.astro";
+import Button from "../button/Button.astro";
+import Icon from "../icon/Icon.astro";
+import Social from "../social/Social.astro";
 ---
-
-<script src="./Sidebar.js"></script>
 
 <div class="sidebar">
   <input class="sidebar__checkbox" type="checkbox" id="sidebar-trigger" />
   <label class="sidebar__shadow" for="sidebar-trigger">
-    <span class="btn btn--black btn--quadro sidebar__btn-close">
-      <svg width="50" height="50" fill="none">
-        <path
-          fill="#fff"
-          d="M38.125 11.896a2.076 2.076 0 0 0-2.937 0L25 22.063 14.813 11.875a2.078 2.078 0 0 0-2.938 2.938L22.063 25 11.875 35.188a2.077 2.077 0 1 0 2.938 2.937L25 27.938l10.188 10.187a2.076 2.076 0 0 0 3.545-1.469 2.08 2.08 0 0 0-.608-1.468L27.938 25l10.187-10.187c.792-.792.792-2.126 0-2.917"
-        ></path>
-      </svg>
-    </span>
+    <Button forceTag="span" quadro class="sidebar__btn-close">
+      <Icon name="close" />
+    </Button>
   </label>
   <aside class="sidebar__panel">
     <div class="sidebar__panel-container">
@@ -36,15 +29,123 @@ import IconTelegram from "@shared/ui/icons/Telegram.astro";
         <a class="sidebar__menu-item" href="#faq">FAQ</a>
         <a class="sidebar__menu-item" href="#about">О проекте</a>
       </nav>
-      <div class="sidebar__social">
-        <button class="btn btn--black btn--quadro sidebar__social-instagram">
-          <IconInstagram />
-        </button>
 
-        <button class="btn btn--black btn--quadro sidebar__social-telegram">
-          <IconTelegram />
-        </button>
-      </div>
+      <Social />
     </div>
   </aside>
 </div>
+
+<script type="module" src="./Sidebar.js"></script>
+<style lang="scss">
+  .sidebar {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    z-index: 99999;
+
+    &__checkbox {
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+    }
+
+    &__shadow {
+      height: 100lvh;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(#000, 0.8);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 300ms ease,
+        visibility 300ms ease;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+    }
+
+    &__btn-close {
+      position: fixed;
+      top: 0;
+      right: 0;
+      transform: translateX(100%);
+      transition: transform 300ms ease;
+
+      svg {
+        transform: scale(0.7);
+      }
+    }
+
+    &__panel {
+      width: 300px;
+      height: 100lvh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background: var(--black-secondary);
+      transform: translateX(-300px);
+      transition: transform 300ms ease;
+      overflow: hidden;
+    }
+
+    &__panel-container {
+      width: 317px;
+      height: 100%;
+      padding-bottom: 50px;
+      overflow-y: scroll;
+    }
+
+    &__profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      background-color: var(--black);
+      padding: 2rem;
+    }
+
+    &__profile-image {
+      max-width: 100%;
+      border-radius: 50%;
+    }
+
+    &__profile-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    &__checkbox:checked ~ &__shadow {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &__checkbox:checked ~ &__shadow &__btn-close {
+      transform: translateX(0);
+    }
+
+    &__checkbox:checked ~ &__panel {
+      transform: translateX(0);
+    }
+
+    &__menu {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 2rem;
+    }
+
+    &__menu-item {
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    &__social {
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 8px;
+    }
+  }
+</style>

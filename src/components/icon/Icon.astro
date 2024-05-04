@@ -1,0 +1,19 @@
+---
+import Instagram from "./icons/Instagram.astro";
+import Logo from "./icons/Logo.astro";
+import Menu from "./icons/Menu.astro";
+import Telegram from "./icons/Telegram.astro";
+import Close from "./icons/Close.astro";
+
+interface Props {
+  name: "instagram" | "logo" | "menu" | "telegram" | "close";
+}
+
+const { name } = Astro.props;
+---
+
+{name === "instagram" && <Instagram />}
+{name === "logo" && <Logo />}
+{name === "menu" && <Menu />}
+{name === "telegram" && <Telegram />}
+{name === "close" && <Close />}

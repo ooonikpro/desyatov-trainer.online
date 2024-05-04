@@ -1,24 +1,63 @@
 ---
-import "./Navbar.scss";
-import IconMenu from "@shared/ui/icons/Menu.astro";
-import Logo from "@shared/ui/icons/Logo.astro";
-import Social from "./social/Social.astro";
+import Icon from "@components/icon/Icon.astro";
+import Button from "@components/button/Button.astro";
+
+import Social from "../social/Social.astro";
 ---
 
 <nav class="navbar">
   <div class="navbar__container">
-    <label for="sidebar-trigger" class="btn btn--quadro navbar__btn-menu">
-      <IconMenu />
-    </label>
-    <a href="#main-section" class="navbar__logo">
-      <Logo />
-    </a>
+    <Button for="sidebar-trigger">
+      <Icon name="menu" />
+    </Button>
+
+    <Button href="#main-section">
+      <Icon name="logo" />
+    </Button>
 
     <Social />
 
-    <a
+    <Button
       href="#subscriptions"
-      class="btn btn--size-s btn--gradient navbar__go-to-programs">Подписки</a
+      color="gradient"
+      class="navbar__go-to-programs"
     >
+      Подписки
+    </Button>
   </div>
 </nav>
+
+<style lang="scss">
+  $navbar-padding: 12px;
+
+  .navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--black);
+    color: var(--white);
+    z-index: 100;
+
+    @include desktop() {
+      --navbar-height: 70px;
+    }
+
+    &__container {
+      width: 100%;
+      margin: auto;
+      max-width: var(--container-width);
+      height: inherit;
+      display: flex;
+      align-items: center;
+      gap: $navbar-padding;
+    }
+
+    &__go-to-programs {
+      margin-left: auto;
+      margin-right: $navbar-padding;
+    }
+  }
+</style>
