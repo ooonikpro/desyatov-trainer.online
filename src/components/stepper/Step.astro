@@ -1,0 +1,83 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<li class="step">
+  <h3 class="step__title">{title}</h3>
+  <p class="step__body">
+    <slot />
+  </p>
+</li>
+
+<style lang="scss">
+  .step {
+    --step-number-size: 5rem;
+    --step-number-line-height: 0.3rem;
+    --step-number-font-size: 2rem;
+    --step-title-size: 1.2rem;
+    --step-body-size: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    counter-increment: step-counter;
+    padding-left: calc(var(--step-number-size) + 1.6rem);
+    min-height: var(--step-number-size);
+    gap: 8px;
+
+    @include desktop {
+      --step-number-size: 7rem;
+      --step-number-line-height: 0.5rem;
+      --step-number-font-size: 2.4rem;
+      --step-title-size: 1.6rem;
+      --step-body-size: 1.4rem;
+    }
+
+    &::before {
+      @include fontAlternative();
+      content: counter(step-counter);
+      display: flex;
+
+      justify-content: center;
+      width: var(--step-number-size);
+      height: var(--step-number-size);
+      line-height: calc(
+        var(--step-number-size) + var(--step-number-line-height)
+      );
+      border-radius: 50%;
+      background: var(--gradient);
+      color: var(--black);
+      font-size: var(--step-number-font-size);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    &:not(:last-of-type)::after {
+      @include bgWithGradient();
+      content: "";
+      width: 2px;
+      height: 100%;
+      position: absolute;
+      left: calc(var(--step-number-size) / 2 - 1px);
+      z-index: 0;
+      bottom: calc(var(--step-number-size) * -1);
+    }
+
+    &__title {
+      text-transform: uppercase;
+      font-size: var(--step-title-size);
+    }
+
+    &__body {
+      opacity: 0.7;
+      font-size: var(--step-body-size);
+    }
+  }
+</style>

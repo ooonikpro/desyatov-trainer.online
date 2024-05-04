@@ -9,11 +9,11 @@ interface Props {
   name: "instagram" | "logo" | "menu" | "telegram" | "close";
 }
 
-const { name } = Astro.props;
+const { name, class: className } = Astro.props;
 ---
 
-{name === "instagram" && <Instagram />}
-{name === "logo" && <Logo />}
-{name === "menu" && <Menu />}
-{name === "telegram" && <Telegram />}
-{name === "close" && <Close />}
+{name === "instagram" && <Instagram class={className} />}
+{name === "logo" && <Logo class={className} />}
+{name === "menu" && <Menu class={className} />}
+{name === "telegram" && <Telegram class={className} />}
+{name === "close" && <Close class={className} />}

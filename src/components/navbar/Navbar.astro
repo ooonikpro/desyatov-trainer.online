@@ -7,13 +7,13 @@ import Social from "../social/Social.astro";
 
 <nav class="navbar">
   <div class="navbar__container">
-    <Button for="sidebar-trigger">
+    <label for="sidebar-trigger" class="navbar__sidebar-trigger">
       <Icon name="menu" />
-    </Button>
+    </label>
 
-    <Button href="#main-section">
+    <a href="#main-section" class="navbar__logo">
       <Icon name="logo" />
-    </Button>
+    </a>
 
     <Social />
 
@@ -45,6 +45,25 @@ import Social from "../social/Social.astro";
       --navbar-height: 70px;
     }
 
+    &__sidebar-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--navbar-height);
+      height: var(--navbar-height);
+      background: var(--black-secondary);
+
+      :global(svg) {
+        width: 1.8rem;
+        height: 1.8rem;
+
+        @include desktop {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+
     &__container {
       width: 100%;
       margin: auto;
@@ -53,6 +72,19 @@ import Social from "../social/Social.astro";
       display: flex;
       align-items: center;
       gap: $navbar-padding;
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 100%;
+      color: var(--white);
+
+      @include desktop {
+        width: 6rem;
+      }
     }
 
     &__go-to-programs {

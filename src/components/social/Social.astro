@@ -1,21 +1,50 @@
 ---
 import Icon from "../icon/Icon.astro";
-import Button from "../button/Button.astro";
 ---
 
 <div class="social">
-  <Button class="social__instagram">
-    <Icon name="instagram" />
-  </Button>
+  <a href="#" class="social__btn">
+    <Icon name="instagram" class="social__btn-icon" />
+  </a>
 
-  <Button class="social__telegram">
-    <Icon name="telegram" />
-  </Button>
+  <a href="#" class="social__btn">
+    <Icon name="telegram" class="social__btn-icon" />
+  </a>
 </div>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .social {
     display: flex;
-    align-items: center;
+    gap: 4px;
+
+    @include desktop {
+      gap: 12px;
+    }
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      color: var(--white);
+      background: var(--black);
+      border-radius: 8px;
+
+      @include desktop {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    &__btn-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+
+      @include desktop {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
 </style>

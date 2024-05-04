@@ -1,5 +1,5 @@
 ---
-import "./BgVideo.scss";
+
 ---
 
 <div class="bg-video">
@@ -14,3 +14,21 @@ import "./BgVideo.scss";
     <source src="videos/video_desktop.mp4" type="video/mp4" />
   </video>
 </div>
+
+<style lang="scss">
+  .bg-video {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.4;
+    z-index: -1;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+</style>
