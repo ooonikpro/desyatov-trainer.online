@@ -1,5 +1,5 @@
-<script>
-  export let label;
+<script lang="ts">
+  export let label: string;
 </script>
 
 
@@ -34,13 +34,12 @@
       padding: 0 1.5rem;
       color: var(--white);
       border: 2px solid rgba(#fff, .2);
-      background: var(--black-secondary);
       font-size: 1.2rem;
       text-align: center;
       font-weight: bold;
       background: none;
       outline: none;
-      border-radius: 12px;
+      border-radius: 8px;
     }
   }
 </style>

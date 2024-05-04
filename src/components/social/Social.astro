@@ -1,8 +1,15 @@
 ---
 import Icon from "../icon/Icon.astro";
+
+interface Props {
+  place: string;
+}
+
+const { place } = Astro.props;
+const classes = ["social", `social--${place}`];
 ---
 
-<div class="social">
+<div class:list={classes}>
   <a href="#" class="social__btn">
     <Icon name="instagram" class="social__btn-icon" />
   </a>
@@ -25,26 +32,49 @@ import Icon from "../icon/Icon.astro";
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 2rem;
-      height: 2rem;
       color: var(--white);
       background: var(--black);
       border-radius: 8px;
+    }
+
+    &--navbar &__btn {
+      width: 2rem;
+      height: 2rem;
 
       @include desktop {
         width: 4rem;
         height: 4rem;
       }
+
+      @include desktop2k {
+        width: 3rem;
+        height: 3rem;
+      }
     }
 
-    &__btn-icon {
+    &--navbar &__btn-icon {
       width: 1.4rem;
       height: 1.4rem;
 
       @include desktop {
-        width: 2rem;
-        height: 2rem;
+        width: 1.8rem;
+        height: 1.8rem;
       }
+
+      @include desktop2k {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+
+    &--sidebar &__btn {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &--sidebar &__btn-icon {
+      width: 1.4rem;
+      height: 1.4rem;
     }
   }
 </style>

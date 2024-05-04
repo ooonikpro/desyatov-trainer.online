@@ -43,9 +43,9 @@
     }
 
     &__indicator {
-      border: 3px solid var(--secondary);
+      border: 2px solid var(--secondary);
       z-index: 1;
-      transition: all 300ms ease;
+      transition: background 300ms ease;
     }
 
     &__text {
@@ -56,7 +56,7 @@
 
     &__text-title {
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 500;
       transition: all 300ms ease;
     }
 
@@ -105,24 +105,57 @@
     &--block &__indicator {
       position: absolute;
       inset: 0;
-      border-radius: 10px;
       transition: all 300ms ease, filter 1s linear;
+      border-color: rgba(#fff, .2);
+      border-top-width: 1px;
+      border-bottom-width: 1px;
       transform-origin: center;
       z-index: 0;
+
+      @include desktop {
+        border-left-width: 1px;
+        border-right-width: 1px;
+        border-top-width: 2px;
+        border-bottom-width: 2px;
+      }
+    }
+
+    &--block:first-child &__indicator {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-top-width: 2px;
+
+      @include desktop {
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 0;
+        border-left-width: 2px;
+      }
+    }
+
+    &--block:last-child &__indicator {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      border-bottom-width: 2px;
+
+      @include desktop {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-right-width: 2px;
+      }
     }
 
     &--block &__text-title {
-      font-size: .9rem;
-      color: var(--secondary);
+      font-size: 0.8rem;
       @include fontAlternative();
 
       @include desktop {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
 
     &--block &__input:checked ~ &__indicator {
-      @include bgWithGradient();
+      background: var(--white);
       filter: hue-rotate(360deg);
     }
 

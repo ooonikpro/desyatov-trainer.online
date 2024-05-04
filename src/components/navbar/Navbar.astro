@@ -1,6 +1,5 @@
 ---
 import Icon from "@components/icon/Icon.astro";
-import Button from "@components/button/Button.astro";
 
 import Social from "../social/Social.astro";
 ---
@@ -15,15 +14,11 @@ import Social from "../social/Social.astro";
       <Icon name="logo" />
     </a>
 
-    <Social />
+    <Social place="navbar" />
 
-    <Button
-      href="#subscriptions"
-      color="gradient"
-      class="navbar__go-to-programs"
-    >
+    <a href="#subscriptions" color="gradient" class="navbar__go-to-programs">
       Подписки
-    </Button>
+    </a>
   </div>
 </nav>
 
@@ -56,11 +51,6 @@ import Social from "../social/Social.astro";
       :global(svg) {
         width: 1.8rem;
         height: 1.8rem;
-
-        @include desktop {
-          width: 2.5rem;
-          height: 2.5rem;
-        }
       }
     }
 
@@ -82,14 +72,37 @@ import Social from "../social/Social.astro";
       height: 100%;
       color: var(--white);
 
+      :global(svg) {
+        width: 100%;
+
+        @include desktop {
+          width: 60%;
+        }
+      }
+
       @include desktop {
-        width: 6rem;
+        width: 10rem;
       }
     }
 
     &__go-to-programs {
+      @include bgWithGradient;
+      @include fontAlternative;
+      color: var(--black);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-left: auto;
       margin-right: $navbar-padding;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.6rem;
+      border-radius: 20px;
+
+      @include desktop {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+      }
     }
   }
 </style>
