@@ -1,13 +1,14 @@
 ---
 import "./Food.scss";
 
-import Calculator from "@components/calculator/Calculator.astro";
+import Calculator from "../../components/calculator/Calculator.svelte";
+import Button from "../../components/button/Button.astro";
 ---
 
 <section class="sections food" id="food">
   <div class="container food__container">
     <div class="title-group food__title-group">
-      <h2 class="title food__title">Расчет колорий</h2>
+      <h2 class="title food__title">Расчет калорий</h2>
       <p class="subtitle food__subtitle">
         Питание — важнейшая составляющая тренировок. Грамотно подобранный рацион
         помогает добиться наилучших результатов в процессе физической
@@ -15,6 +16,10 @@ import Calculator from "@components/calculator/Calculator.astro";
       </p>
     </div>
 
-    <Calculator />
+    <Calculator client:visible>
+      <Button slot="submit" type="submit" size="l" color="gradient" block>
+        Расчитать
+      </Button>
+    </Calculator>
   </div>
 </section>

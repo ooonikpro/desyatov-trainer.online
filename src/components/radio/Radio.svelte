@@ -1,18 +1,20 @@
-<script>
-  export let name;
-  export let value;
+<script lang="ts">
+  export let name: string;
+  export let value: string;
   export let block = false;
-  export let checked;
+  export let group;
+  export let required: boolean;
 </script>
 
 <label class="radio" class:radio--block={block} class:radio--point={!block}>
   <input
-    bind:group={name}
+    {...$$restProps}
+    bind:group={group}
     class="radio__input"
     type="radio"
     name={name}
     value={value}
-    checked={checked}
+    required={required}
   />
   <span class="radio__indicator"></span>
   <span class="radio__text">

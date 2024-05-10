@@ -1,11 +1,12 @@
 <script lang="ts">
   export let label: string;
+  export let value: string;
 </script>
 
 
 <label class="input">
   <span class="input__label">{label}</span>
-  <input class="input__input" {...$$restProps} />
+  <input class="input__input" {...$$restProps} bind:value={value} autocomplete="off" />
 </label>
 
 <style lang="scss">

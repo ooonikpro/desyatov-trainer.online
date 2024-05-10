@@ -1,36 +1,17 @@
----
-interface Props {
-  label: string;
-  textCenter?: boolean;
-  inline?: boolean;
-}
+<script lang="ts">
+  export let label: string;
+  export let textCenter: boolean | undefined = false;
+  export let inline = false;
+</script>
 
-const { label, inline = false, textCenter } = Astro.props;
-const classes = {
-  root: [
-    "radio-group",
-    {
-      "radio-group--inline": inline,
-    },
-  ],
-
-  label: [
-    "radio-group__label",
-    {
-      "radio-group__label--center": textCenter,
-    },
-  ],
-};
----
-
-<div class:list={classes.root}>
-  <span class:list={classes.label}>{label}</span>
+<div class="radio-group" class:radio-group--inline={inline}>
+  <span class="radio-group__label" class:radio-group__label--center={textCenter}>{label}</span>
   <div class="radio-group__container">
     <slot />
   </div>
 </div>
 
-<style lang="scss" is:global>
+<style lang="scss">
   .radio-group {
     &__label {
       width: 100%;

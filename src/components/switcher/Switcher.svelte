@@ -4,10 +4,11 @@
   export let left: string;
   export let right: string;
   export let withContent: boolean;
+  export let value: boolean;
 </script>
 
 <div class="switcher">
-  <input class="switcher__input" type="checkbox" id={id} {...$$restProps} />
+  <input class="switcher__input" type="checkbox" id={id} bind:checked={value} {...$$restProps} />
   <label class="switcher__trigger" for={id}>
     <span class="switcher__option">{left}</span>
     <span class="switcher__option">{right}</span>
