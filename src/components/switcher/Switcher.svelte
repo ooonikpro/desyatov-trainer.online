@@ -3,12 +3,16 @@
   export let label: string;
   export let left: string;
   export let right: string;
-  export let withContent: boolean;
+  export let withContent: boolean | undefined = false;
   export let value: boolean;
 </script>
 
 <div class="switcher">
-  <input class="switcher__input" type="checkbox" id={id} bind:checked={value} {...$$restProps} />
+  {#if label}
+    <span class="switcher__label">{label}</span>
+  {/if}
+
+  <input {...$$restProps} class="switcher__input" type="checkbox" id={id} bind:checked={value} />
   <label class="switcher__trigger" for={id}>
     <span class="switcher__option">{left}</span>
     <span class="switcher__option">{right}</span>
@@ -27,8 +31,12 @@
 
 <style lang="scss">
   .switcher {
-    display: flex;
-    flex-direction: column;
+    &__label {
+      display: block;
+      color: var(--white);
+      font-size: 1rem;
+      opacity: 0.7;
+    }
 
     &__trigger {
       display: flex;

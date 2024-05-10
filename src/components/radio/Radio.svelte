@@ -1,6 +1,6 @@
 <script lang="ts">
   export let name: string;
-  export let value: string;
+  export let value: string | number;
   export let block = false;
   export let group;
   export let required: boolean;
@@ -51,6 +51,7 @@
     }
 
     &__text {
+      position: relative;
       display: flex;
       flex-direction: column;
       z-index: 1;
@@ -63,10 +64,23 @@
     }
 
     &__text-description {
+      position: absolute;
+      bottom: 0;
+      left: 0;
       font-size: .9rem;
-      font-weight: 500;
-      opacity: .8;
+      font-weight: 400;
+      opacity: .7;
       transition: all 300ms ease;
+    }
+
+    &--point {
+      align-items: flex-start;
+    }
+
+    &--point &__text {
+      flex: 1 1 auto;
+      height: 50px;
+      padding-top: .4rem;
     }
 
     &--point &__indicator {

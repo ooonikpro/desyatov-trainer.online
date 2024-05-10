@@ -6,6 +6,10 @@ import Atlet from "./cards/Atlet.astro";
 import MyasoNabor from "./cards/MyasoNabor.astro";
 import FitoNyashka from "./cards/FitoNyashka.astro";
 import KrugloYagodichnoe from "./cards/KrugloYagodichnoe.astro";
+import AtletLite from "./cards/AtletLite.astro";
+import MyasoNaborLite from "./cards/MyasoNaborLite.astro";
+import FitoNyashkaLite from "./cards/FitoNyashkaLite.astro";
+import KrugloYagodichnoeLite from "./cards/KrugloYagodichnoeLite.astro";
 ---
 
 <section class="sections subscriptions" id="subscriptions">
@@ -23,11 +27,15 @@ import KrugloYagodichnoe from "./cards/KrugloYagodichnoe.astro";
       <Fragment slot="left-content">
         <Atlet />
         <MyasoNabor />
+        <AtletLite />
+        <MyasoNaborLite />
       </Fragment>
 
       <Fragment slot="right-content">
         <FitoNyashka />
         <KrugloYagodichnoe />
+        <FitoNyashkaLite />
+        <KrugloYagodichnoeLite />
       </Fragment>
     </Switcher>
 

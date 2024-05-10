@@ -16,7 +16,7 @@
     &__label {
       width: 100%;
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       color: var(--white);
       font-size: 1rem;
       opacity: 0.7;
@@ -30,11 +30,13 @@
       display: flex;
       flex: 1 1 auto;
       flex-direction: column;
+      gap: 8px;
     }
 
     &--inline &__container {
       flex-direction: row;
       flex-wrap: wrap;
+      gap: 0;
 
       @include desktop() {
         flex-wrap: nowrap;

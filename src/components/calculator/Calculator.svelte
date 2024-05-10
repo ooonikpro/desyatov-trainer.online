@@ -75,6 +75,8 @@
       bind:value={formData.gender}
     />
 
+    <pre>{formData.gender}</pre>
+
     <RadioGroup label="Xочу" inline>
       {#each purposeOptions as { label, value }, i}
         <Radio name="purpose" value={value} block required bind:group={formData.purpose}>{label}</Radio>
@@ -137,11 +139,6 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
-    }
-
-    &__submit {
-      display: flex;
-      flex-direction: column;
     }
   }
 </style>
