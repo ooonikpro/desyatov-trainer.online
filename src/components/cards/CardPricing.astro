@@ -1,6 +1,7 @@
 ---
 import Radio from "../radio/Radio.svelte";
 import Switcher from "../switcher/Switcher.svelte";
+import Button from "../button/Button.astro";
 
 interface Props {
   id: string;
@@ -45,9 +46,9 @@ const getTotal = (price: number): string => String(price * 3 * 0.9);
     </Fragment>
   </Switcher>
 
-  <button class="btn btn--size-l btn--gradient card__payment">
+  <Button size="l" color="gradient" class="card__payment">
     Перейти к оплате
-  </button>
+  </Button>
 
   <slot name="cancel-btn" />
 </div>

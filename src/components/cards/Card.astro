@@ -1,6 +1,7 @@
 ---
 import "./Card.scss";
 import CardPricing from "./CardPricing.astro";
+import Button from "../button/Button.astro";
 
 interface Props {
   title: string;
@@ -55,9 +56,7 @@ const classes = ["card", genderModifier[gender]];
       <b class="card__price-value">{String(textPrice)}&nbsp;₽</b>
       <span class="card__price-prefix">&nbsp;/ мес.</span>
     </p>
-    <label for={priceTriggerId} class="btn btn--size-l btn--gradient">
-      Подключить
-    </label>
+    <Button for={priceTriggerId} size="l" color="gradient"> Подключить </Button>
 
     <label class="link card__details" for={descriptionTriggerId}>
       <span class="card__details-text">Подробнее о программе</span>

@@ -9,14 +9,18 @@ import Social from "../social/Social.astro";
   <label class="sidebar__shadow" for="sidebar-trigger"></label>
   <aside class="sidebar__panel">
     <div class="sidebar__panel-container">
-      <figure class="sidebar__profile">
-        <img
-          class="sidebar__profile-image"
-          src="images/nikita.png"
-          alt="Никита Десятов"
-        />
-        <figcaption class="sidebar__profile-title">Никита Десятов</figcaption>
-      </figure>
+      <div class="sidebar__profile">
+        <figure>
+          <img
+            class="sidebar__profile-image"
+            src="images/nikita.png"
+            alt="Никита Десятов"
+          />
+          <figcaption class="sidebar__profile-title">Никита Десятов</figcaption>
+        </figure>
+
+        <Button href="#" color="gradient" size="s" block>Консультация</Button>
+      </div>
       <nav class="sidebar__menu">
         <a class="sidebar__menu-item" href="#subscriptions">Программы</a>
         <a class="sidebar__menu-item" href="#maintenance">Ведение</a>
@@ -103,11 +107,17 @@ import Social from "../social/Social.astro";
     &__profile {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.2rem;
       background-color: var(--black);
       padding: 2rem;
+      gap: 1.2rem;
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+      }
     }
 
     &__profile-image {
