@@ -71,11 +71,8 @@
       id="calc-gender"
       left="Я мужчина"
       right="Я женщина"
-      label="Пол"
       bind:value={formData.gender}
     />
-
-    <pre>{formData.gender}</pre>
 
     <RadioGroup label="Xочу" inline>
       {#each purposeOptions as { label, value }, i}
@@ -92,6 +89,7 @@
         name="age"
         required
         bind:value={formData.age}
+        placeholder=""
       />
       <Input
         type="number"
